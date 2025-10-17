@@ -441,17 +441,49 @@ export default function App() {
           </div>
         </div>
       </section>
+{/* --- Compliance / Legal --- */}
+<section className="py-10">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="rounded-2xl border border-gray-200 bg-white p-6 text-xs leading-relaxed text-gray-600">
+      <div className="font-semibold text-gray-900 mb-2">Compliance</div>
 
-      <footer className="py-10 border-t border-gray-200 bg-white">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className="text-sm text-gray-500">© {new Date().getFullYear()} {CONFIG.SITE_NAME}. All rights reserved.</div>
-          <div className="flex items-center gap-4 text-sm text-gray-600">
-            <a href={CONFIG.PRIVACY_URL} className="underline">Privacy</a>
-            <a href={CONFIG.TERMS_URL} className="underline">Terms</a>
-            <button onClick={()=>setActiveTab('listings')} className="px-3 py-1.5 rounded-lg bg-gray-900 text-white">Browse Listings</button>
-          </div>
-        </div>
-      </footer>
+      <p>
+        Skyline Houses is a real-estate referral service that introduces consumers to licensed real-estate
+        professionals. Services may be provided through <strong>Berkshire Hathaway HomeServices Kee Realty</strong>
+        or its affiliated brokerages where required. Skyline Houses does not represent buyers or sellers directly.
+        Introductions are coordinated through our brokerage partners.
+      </p>
+
+      <p className="mt-2">
+        Listing information is provided exclusively for consumers’ personal, non-commercial use and may not be used
+        for any purpose other than to identify prospective properties consumers may be interested in purchasing.
+        Information is deemed reliable but not guaranteed and should be independently verified.
+        © {new Date().getFullYear()} Realcomp II Ltd and other MLS providers. All rights reserved.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer className="py-10 border-t border-gray-200 bg-white">
+  <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div className="text-sm text-gray-500">
+      © {new Date().getFullYear()} Skyline Houses. All rights reserved.
+      <span className="ml-2 block md:inline">
+        Broker sponsorship: <strong>Berkshire Hathaway HomeServices Kee Realty</strong>.
+      </span>
+      <span className="ml-2 block md:inline">
+        MLS data: Realcomp II Ltd and participating MLSs; information deemed reliable but not guaranteed.
+      </span>
+    </div>
+    <div className="flex items-center gap-4 text-sm text-gray-600">
+      <a href="/disclaimer" className="underline">Disclaimer</a>
+      <a href="#privacy" className="underline">Privacy</a>
+      <a href="#terms" className="underline">Terms</a>
+      <button onClick={()=>setActiveTab('listings')} className="px-3 py-1.5 rounded-lg bg-gray-900 text-white">Browse Listings</button>
+    </div>
+  </div>
+</footer>
+
 
       {consentOpen && (
         <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
