@@ -464,52 +464,71 @@ export default function App() {
   </div>
 </section>
 
+{/* ===== Footer ===== */}
 <footer className="py-10 border-t border-gray-200 bg-white">
   <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div className="text-sm text-gray-500">
-      © {new Date().getFullYear()} Skyline Houses. All rights reserved.
-      <span className="ml-2 block md:inline">
-        Broker sponsorship: <strong>Berkshire Hathaway HomeServices Kee Realty</strong>.
-      </span>
-      <span className="ml-2 block md:inline">
+    <div className="text-sm text-gray-600 leading-6">
+      <div className="font-semibold text-gray-900">
+        Berkshire Hathaway HomeServices Kee Realty
+      </div>
+      <div>210 W University Dr, Rochester, MI 48307 • (248) 651-1200</div>
+
+      <div className="mt-2">
+        Team: <strong>Mark Warren &amp; Evan Partridge Team</strong>
+      </div>
+
+      <div className="mt-2">
         MLS data: Realcomp II Ltd and participating MLSs; information deemed reliable but not guaranteed.
-      </span>
+        © {new Date().getFullYear()} All rights reserved.
+      </div>
     </div>
-    <div className="flex items-center gap-4 text-sm text-gray-600">
+
+    <div className="flex items-center gap-4 text-sm text-gray-700">
       <a href="/disclaimer" className="underline">Disclaimer</a>
       <a href="#privacy" className="underline">Privacy</a>
       <a href="#terms" className="underline">Terms</a>
-      <button onClick={()=>setActiveTab('listings')} className="px-3 py-1.5 rounded-lg bg-gray-900 text-white">Browse Listings</button>
+      <button
+        onClick={() => (typeof setActiveTab === "function" ? setActiveTab("listings") : null)}
+        className="px-3 py-1.5 rounded-lg bg-gray-900 text-white"
+      >
+        Browse Listings
+      </button>
     </div>
   </div>
 </footer>
 
-
-      {consentOpen && (
-        <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6">
-            <div className="flex items-center justify-between">
-              <div className="text-lg font-semibold text-gray-900">Privacy & Consent</div>
-              <button onClick={() => setConsentOpen(false)} className="text-gray-500">✕</button>
-            </div>
-            <div className="mt-3 text-sm text-gray-600 space-y-3">
-              <p>
-                We collect your contact information and search criteria to provide agent matching and concierge services.
-                We may share your details with selected real‑estate professionals for the purpose of an introduction.
-              </p>
-              <p>
-                You can opt out of marketing communications anytime by replying STOP or using the unsubscribe link.
-              </p>
-              <p>
-                For data requests or deletion, email <a className="underline" href={`mailto:${CONFIG.BROKERAGE_REFERRAL_EMAIL}`}>{CONFIG.BROKERAGE_REFERRAL_EMAIL}</a>.
-              </p>
-            </div>
-            <div className="mt-5 text-right">
-              <button onClick={() => setConsentOpen(false)} className="px-4 py-2 rounded-lg bg-gray-900 text-white">Close</button>
-            </div>
-          </div>
-        </div>
-      )}
+{/* ===== Privacy/Consent Modal ===== */}
+{consentOpen && (
+  <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+    <div className="bg-white rounded-2xl max-w-lg w-full p-6">
+      <div className="flex items-center justify-between">
+        <div className="text-lg font-semibold text-gray-900">Privacy &amp; Consent</div>
+        <button onClick={() => setConsentOpen(false)} className="text-gray-500">✕</button>
+      </div>
+      <div className="mt-3 text-sm text-gray-600 space-y-3">
+        <p>
+          We collect your contact information and search criteria to provide agent matching and concierge services.
+          We may share your details with selected real-estate professionals for the purpose of an introduction.
+        </p>
+        <p>
+          You can opt out of marketing communications anytime by replying STOP or using the unsubscribe link.
+        </p>
+        <p>
+          For data requests or deletion, email{" "}
+          <a className="underline" href={`mailto:${CONFIG.BROKERAGE_REFERRAL_EMAIL}`}>
+            {CONFIG.BROKERAGE_REFERRAL_EMAIL}
+          </a>.
+        </p>
+      </div>
+      <div className="mt-5 text-right">
+        <button onClick={() => setConsentOpen(false)} className="px-4 py-2 rounded-lg bg-gray-900 text-white">
+          Close
+        </button>
+      </div>
     </div>
-  );
+  </div>
+)}
+</div>
+);
 }
+
